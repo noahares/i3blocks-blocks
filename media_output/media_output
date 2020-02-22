@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cur_sink=$(pacmd list-sinks | grep '* index:' | tr -d '\n' | tail -c 2)
+
+if [ $cur_sink != 1 ]
+then
+        echo "speakers"
+else
+        echo "headphones"
+fi

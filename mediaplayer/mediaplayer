@@ -117,7 +117,7 @@ sub mpd {
 }
 
 sub playerctl {
-    buttons('playerctl');
+    #buttons('playerctl');
 
     my $artist = qx(playerctl $player_arg metadata artist);
     chomp $artist;
@@ -140,6 +140,8 @@ sub rhythmbox {
     my $data = qx(rhythmbox-client --print-playing --no-start);
     print($data);
 }
+
+print(' ');
 
 if ($player_arg eq '' or $player_arg =~ /mpd/) {
     mpd;

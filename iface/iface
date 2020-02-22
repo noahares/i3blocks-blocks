@@ -34,6 +34,7 @@ IF="${IF:-$(ip route | awk '/^default/ { print $5 ; exit }')}"
 
 AF=${ADDRESS_FAMILY:-inet6?}
 LABEL="${LABEL:-}"
+DOWN="${DOWN:-}"
 
 for flag in "$1" "$2"; do
   case "$flag" in
@@ -51,8 +52,8 @@ for flag in "$1" "$2"; do
 done
 
 if [[ "$IF" = "" ]] || [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
-  echo "${LABEL}down" # full text
-  echo "${LABEL}down" # short text
+  echo "${DOWN}" # full text
+  echo "${DOWN}" # short text
   echo \#FF0000 # color
   exit
 fi

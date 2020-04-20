@@ -1,5 +1,11 @@
 #!/bin/bash
 
+case $BLOCK_BUTTON in
+    1)
+        notify-send "Fetching mail..."
+        mailsync.sh > /dev/null && notify-send "Mail fetched.";;
+esac
+
 kit_mail=$(find ~/.mail/kit/INBOX/new/ -type f | wc -l)
 yahoo_mail=$(find ~/.mail/yahoo/Inbox/new/ -type f | wc -l)
 
